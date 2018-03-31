@@ -8,7 +8,7 @@ class Taron extends KendaniEak{
             [this.x + 2, this.y],
             [this.x - 2, this.y + 2],
             [this.x, this.y + 2],
-            [this.x + 2, this.y + 2]
+            [this.x + 2, this.y + 2],
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
             [this.x + 1, this.y - 1],
@@ -24,9 +24,9 @@ class Taron extends KendaniEak{
         var emptyCord = this.getDirections(0);
         var cord1 = random(emptyCord);
 
-        if (cord) {
-             var x = cord[0];
-             var y = cord[1];
+        if (cord1) {
+             var x = cord1[0];
+             var y = cord1[1];
 
              matrix[y][x] = 6;
 
@@ -38,10 +38,10 @@ class Taron extends KendaniEak{
     }
 
         mul() {
-        var emptyCord1 = this.getDirections(0);
+        var emptyCord = this.getDirections(0);
 
-        var cord1 = random(emptyCord);
-        if (cord1) {
+        var cord = random(emptyCord);
+        if (cord) {
             var x = cord[0];
             var y = cord[1];
 
@@ -188,7 +188,6 @@ class Taron extends KendaniEak{
             this.move();
             this.energy--;
         }
-        console.log(this.energy);
         if (this.energy < 3) {
             this.die();
         }  
@@ -196,8 +195,8 @@ class Taron extends KendaniEak{
             if (cord4) {
             this.multiply++;
 
-            var x = cord3[0];
-            var y = cord3[1];
+            var x = cord4[0];
+            var y = cord4[1];
 
             matrix[y][x] = 6;
             matrix[this.y][this.x] = 0;
@@ -220,10 +219,11 @@ class Taron extends KendaniEak{
             this.move();
             this.energy--;
         }
-        console.log(this.energy);
         if (this.energy < 3) {
             this.die();
-        }  
+        }
+        this.energy = 10;
+        this.eatCount = 0; 
     }
 
     die() {

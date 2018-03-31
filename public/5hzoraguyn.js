@@ -149,7 +149,6 @@ class Hzoraguyn extends KendaniEak{
             this.move();
             this.energy--;
         }
-        console.log(this.energy);
         if (this.energy < 3) {
             this.die();
         }  

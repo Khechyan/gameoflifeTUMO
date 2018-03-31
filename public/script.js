@@ -1,5 +1,5 @@
 var matrix = []
-var side = 5;
+var side = 10;
 var grassArr = [];
 var eatArr = [];
 var gishArr = [];
@@ -137,34 +137,53 @@ function setup() {
             }
         }
     }
-   // console.log(matrix);
+    // console.log(matrix);
 }
 
+var hashvich = 0;
+
 function draw() {
+    hashvich++;
     background('#acacac');
     for (var i = 0; i < matrix.length; i++) {
         for (var j = 0; j < matrix[i].length; j++) {
             if (matrix[i][j] == 1) {
-                fill("green");
+                if (hashvich * 10 <= 200) {
+                    fill('#8A2BE2');
+                    rect(j * side, i * side, side, side);
+                } else if (hashvich * 10 <= 400) {
+                    fill("green");
+                    rect(j * side, i * side, side, side);
+                } else if (hashvich * 10 <= 600) {
+                    fill('#FF7F50');
+                    rect(j * side, i * side, side, side);
+                } else if (hashvich * 10 <= 800) {
+                    fill('#white');
+                    rect(j * side, i * side, side, side);
+                } else if(hashvich >= 800){
+                    hashvich == 0;
+                }
+            }
+            if (matrix[i][j] == 2) {
+                fill("yellow");
                 rect(j * side, i * side, side, side);
-            } else if (matrix[i][j] == 2) {
-                fill("orange");
-                rect(j * side, i * side, side, side);
-            } else if (matrix[i][j] == 3) {
+            }
+            if (matrix[i][j] == 3) {
                 fill("red");
                 rect(j * side, i * side, side, side);
-            } else if (matrix[i][j] == 4) {
+            }
+            if (matrix[i][j] == 4) {
+                fill('#E9967A');
+                rect(j * side, i * side, side, side);
+            }
+            if (matrix[i][j] == 5) {
                 fill("black");
                 rect(j * side, i * side, side, side);
-            } else if (matrix[i][j] == 5) {
-                fill("white");
-                rect(j * side, i * side, side, side);
-            } else if (matrix[i][j] == 6) {
+            }
+            if (matrix[i][j] == 6) {
                 fill("blue");
                 rect(j * side, i * side, side, side);
-            } else if (matrix[i][j] == 0) {
-                fill('#acacac');
-                rect(j * side, i * side, side, side);
+
             }
         }
     }
@@ -198,3 +217,5 @@ function draw() {
 
     }
 }
+
+
